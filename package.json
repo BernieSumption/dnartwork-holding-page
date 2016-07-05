@@ -1,0 +1,22 @@
+{
+  "name": "dnartwork-holding-page",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "tslint",
+    "start": "npm-run-all --parallel start:ts start:server",
+    "start:ts": "tsc --watch",
+    "start:server": "live-server --ignorePattern='\\.ts$'"
+  },
+  "private": true,
+  "author": "Bernie Sumption <bernie@berniecode.com> (http://berniesumption.com/)",
+  "bugs": {
+    "url": "https://github.com/BernieSumption/dnartwork-holding-page/issues"
+  },
+  "homepage": "https://github.com/BernieSumption/dnartwork-holding-page#readme",
+  "dependencies": {
+    "live-server": "^1.0.0",
+    "npm-run-all": "^2.3.0",
+    "tslint": "^3.13.0",
+    "typescript": "^1.8.10"
+  }
+}
