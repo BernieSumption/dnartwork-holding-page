@@ -30,6 +30,9 @@ function showMagnifier(coords, e, id) {
         magnifier.className = "is-visible";
         moveMagnifier(coords, e, id);
     }
+    if (document.location.search === "?testErrorReporting") {
+        throw new Error("Testing error reporting");
+    }
 }
 function moveMagnifier(coords, e, id) {
     if (id === void 0) { id = -1; }
