@@ -41,7 +41,7 @@ h2 {
   margin: 20px 10% 10px 10%;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   h1 {
     font-size: 3em;
   }
