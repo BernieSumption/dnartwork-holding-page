@@ -1,4 +1,4 @@
-/*@import url(https://fonts.googleapis.com/css?family=Raleway:100);*/
+
 @import url(https://fonts.googleapis.com/css?family=Lato:100);
 
 html, body {
@@ -39,6 +39,16 @@ h2 {
   font-family: 'Lato', sans-serif;
   font-size: 2em;
   margin: 20px 10% 10px 10%;
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
 }
 
 h3 {
