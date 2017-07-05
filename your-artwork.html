@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>DNArtwork</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy" rel="stylesheet">
+  <link href="/app.css" rel="stylesheet">
+  <script src="/app.js"></script>
+  <script>require('initialize');</script>
+</head>
+<body>
+  <div class="content-page">
+
+
+    <div class="content-page-header">
+      <div class="contained-content content-page-header-content">
+        <a class="content-page-logo" href="/">DNArtwork</a>
+        <div class="content-page-menu">
+          <a class="content-page-menu-link" href="your-artwork.html">yours</a>
+          <span class="content-page-menu-separator"></span>
+          <a class="content-page-menu-link" href="about.html">about</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contained-content article-content">
+
+
+  <div class="outer">
+    <div class="wizard-step" data-step-name="start">
+      <h2 class="wizard-step-title">Step 1: get gene tested</h2>
+
+      <p>In order to get a DNArtwork, you need a gene test from one of our supported providers: Ancestry.com, 23andme and National Geographic. If you have a gene test from a different provider then contact me on bernie@berniecode.com - I may be able to add support for your provider.</p>
+        
+        <a class="action-button go-to-step-2-button">
+          <span class="action-button-title">I'm ready</span>
+          <span class="action-button-subtitle">I've already had a gene test</span>
+        </a>
+        
+        <a class="action-button help-me-choose-button" href="your-artwork-providers.html">
+          <span class="action-button-title">Help me choose</span>
+          <span class="action-button-subtitle">I need to get a gene test</span>
+        </a>
+    </div>
+    <div class="wizard-step" data-step-name="data-upload" id="data-upload-drop-target">
+      <h2 class="wizard-step-title">Step 2: provide your genetic data</h2>
+
+      <p><strong>IMPORTANT!</strong> By using this page you are agreeing to the entirely reasonable <a href="about-terms.html">Terms &amp; Conditions</a>. You should actually read them. They're very short.</p>
+      
+      <p>First you need to download the raw data from your provider. For instructions, try these links:
+        <a href="http://www.google.com/search?q=ancestry.com+raw+data+download" target="_blank">Ancestry.com</a>,
+        <a href="http://www.google.com/search?q=23andme+raw+data+download" target="_blank">23andme</a>,
+        <a href="http://www.google.com/search?q=genographic+raw+data+download" target="_blank">National Genographic</a> and
+        <a href="http://www.google.com/search?q=Family+Tree+DNA+raw+data+download" target="_blank">Family Tree DNA</a>. If you're having trouble with this step, contact your gene test provider for help.</p>
+
+      <p>Next use the button below to provide the raw gene data for analysis. The files are analysed by this web page, and no genetic data will leave your computer. Read more about how <a href="http://blog.berniesumption.com/software/dnartwork-how-it-works/">your DNA is analysed here</a>.</p>
+      <div class="upload">
+          <label for="artworkinput" class="action-button upload-button">
+            <span class="action-button-title">Choose files</span>
+            <span class="action-button-subtitle">(or drag them from your desktop)</span>
+            <input style="display:none" type="file" id="artworkinput" multiple>
+          </label>
+          <div id="parse-status-display"></div>
+      </div>
+      <textarea class="parse-debug-dump-text" id="parse-debug-dump"></textarea>
+      <div id="data-upload-drop-indicator"></div>
+    </div>
+    <div class="wizard-step" data-step-name="view-artwork">
+      <h2 class="wizard-step-title">Step 3: view and share your artwork</h2>
+      <h3>This is your DNArtwork. There are 8 × 10<sup>52</sup> like it, but this one is yours.</h3>
+      <div class="artwork-preview">
+          <img class="artwork-preview-image" id="artwork-preview-image" />
+      </div>
+      <h3>Download your artwork</h3>
+      <p>DNArtworks look great when printed out large. Download a high-resolution version to print at home or send to an online poster printing service</p>
+      <ul>
+        <li id="dnartwork-sizeable-download-link"><a href="javascript:downloadArtwork(3000, 'dnartwork-sizeable')">Sizeable: for prints up to A4 size (30cm wide) or use as desktop wallpaper</a></li>
+        <li id="dnartwork-largeish-download-link"><a href="javascript:downloadArtwork(6000, 'dnartwork-largeish')">Largeish: for prints up to A2 size (60cm wide)</a></li>
+        <li id="dnartwork-massive-download-link"><a href="javascript:downloadArtwork(12000, 'dnartwork-massive')">Massive: for prints up to A0 size and beyond (1+ meter wide)</a></li>
+      </ul>
+      <h3>Compare artworks with your relatives</h3>
+      <p>Do any of your friends and relatives have DNA tests? If so, send them to this page so that you can compare artworks!</p>
+    </div>
+    
+    <div class="missing-api-warning">
+      <h2>It looks like your browser doesn't support DNArtwork</h2>
+      <p>Please try in a modern browser that supports file uploads. Any recent version of Chrome, Firefox, Internet Explorer or Edge should be fine.</p>
+    </div>
+  </div>
+
+    </div>
+  </div>
+<script src="/dnartwork.min.js"></script>
+</body>
+</html>
