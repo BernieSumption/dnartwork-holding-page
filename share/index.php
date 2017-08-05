@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy" rel="stylesheet">
   <link href="/app.css" rel="stylesheet">
-  <meta property="og:image" content="https://dnartwork-render-image.azurewebsites.net/api/render-image?<?php echo urlencode($_REQUEST['art']); ?>"/>
+  <meta property="og:image" content="https://dnartwork-render-image.azurewebsites.net/api/render-image?<?php echo htmlentities($_REQUEST['art']); ?>"/>
   <?php if ($_REQUEST['title']) { ?>
     <meta property="og:title" content="<?php echo htmlentities($_REQUEST['title']); ?>"/>
   <?php } ?>
