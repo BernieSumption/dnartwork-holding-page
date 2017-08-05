@@ -7,6 +7,35 @@
   <link href="/app.css" rel="stylesheet">
   <script src="/app.js"></script>
   <script>require('initialize');</script>
+  <script>
+function sharePreview() {
+  window.open(getShareUrl(), "_blank");
+}
+function shareFacebook() {
+  var url = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(getShareUrl());
+  window.open(url, "_blank");
+}
+function shareTwitter() {
+  var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent("Check out my #DNArtwork: " + getShareUrl());
+  window.open(url, "_blank");
+}
+
+function getShareUrl() {
+  var imageSrc = document.getElementById("artwork-preview-image").src;
+  imageSrc = imageSrc.slice(imageSrc.indexOf("?") + 1);
+  var shareTitle = document.getElementById("share-title").value.trim();
+  var shareMessage = document.getElementById("share-title").value.trim();
+  var loc = document.location;
+  var url = loc.protocol + "//" + loc.host + "/share/?art=" + encodeURIComponent(imageSrc);
+  if (shareTitle) {
+    url += "&title=" + encodeURIComponent(shareTitle);
+  }
+  if (shareMessage) {
+    url += "&message=" + encodeURIComponent(shareMessage);
+  }
+  return url;
+}
+  </script>
 </head>
 <body>
   <div class="content-page">
@@ -16,9 +45,9 @@
       <div class="contained-content content-page-header-content">
         <a class="content-page-logo" href="/">DNArtwork</a>
         <div class="content-page-menu">
-          <a class="content-page-menu-link" href="your-artwork.html">yours</a>
+          <a class="content-page-menu-link" href="/your-artwork/">Yours</a>
           <span class="content-page-menu-separator"></span>
-          <a class="content-page-menu-link" href="about.html">about</a>
+          <a class="content-page-menu-link" href="/about/">About</a>
         </div>
       </div>
     </div>
@@ -37,7 +66,7 @@
           <span class="action-button-subtitle">I've already had a gene test</span>
         </a>
         
-        <a class="action-button help-me-choose-button" href="your-artwork-providers.html">
+        <a class="action-button help-me-choose-button" href="/your-artwork-providers/">
           <span class="action-button-title">Help me choose</span>
           <span class="action-button-subtitle">I need to get a gene test</span>
         </a>
@@ -45,7 +74,7 @@
     <div class="wizard-step" data-step-name="data-upload" id="data-upload-drop-target">
       <h2 class="wizard-step-title">Step 2: provide your genetic data</h2>
 
-      <p><strong>IMPORTANT!</strong> By using this page you are agreeing to the entirely reasonable <a href="about-terms.html">Terms &amp; Conditions</a>. You should actually read them. They're very short.</p>
+      <p><strong>IMPORTANT!</strong> By using this page you are agreeing to the entirely reasonable <a target="_blank" href="/about-terms/">Terms &amp; Conditions</a>. You should actually read them. They're very short.</p>
       
       <p>First you need to download the raw data from your provider. For instructions, try these links:
         <a href="http://www.google.com/search?q=ancestry.com+raw+data+download" target="_blank">Ancestry.com</a>,
@@ -69,7 +98,27 @@
       <h2 class="wizard-step-title">Step 3: view and share your artwork</h2>
       <h3>This is your DNArtwork. There are 8 × 10<sup>52</sup> like it, but this one is yours.</h3>
       <div class="artwork-preview">
-          <img class="artwork-preview-image" id="artwork-preview-image" />
+          <img class="artwork-image" id="artwork-preview-image" />
+      </div>
+      <h3>Share</h3>
+      <p class="share-form-title">Create a link to share your artwork online:</p>
+      <div class="share-form">
+        <div class="share-form-field">
+          <div class="share-form-field-label">Optional page title</div>
+          <div class="share-form-field-input"><input id="share-title" placeholder="e.g. &ldquo;John Doe's DNArtwork&rdquo;"></div>
+        </div>
+        <div class="share-form-field">
+          <div class="share-form-field-label">Optional message</div>
+          <div class="share-form-field-input"><input id="share-message" placeholder="e.g. &ldquo;Check out this artistic representation of my DNA!&rdquo;"></div>
+        </div>
+        <div class="share-form-field">
+          <div class="share-form-field-label"></div>
+          <div class="share-form-field-input">
+            <button type="submit" class="share-preview-button action-button" onclick="sharePreview();">Preview</button>
+            <button type="submit" class="share-facebook-button action-button" onclick="shareFacebook();">Post</button>
+            <button type="submit" class="share-twitter-button action-button" onclick="shareTwitter();">Tweet</button>
+          </div>
+        </div>
       </div>
       <h3>Download your artwork</h3>
       <p>DNArtworks look great when printed out large. Download a high-resolution version to print at home or send to an online poster printing service</p>
