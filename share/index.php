@@ -18,7 +18,7 @@
       <?php if ($_REQUEST['title']) { ?>
         <h1 class="share-page-title"><?php echo htmlentities($_REQUEST['title']); ?></h1>
       <?php } ?>
-      <p><img class="artwork-image" id="artwork-share-image" src="https://dnartwork-render-image.azurewebsites.net/api/render-image?<?php echo urlencode($_REQUEST['art']); ?>" /></p>
+      <p><img class="artwork-image" id="artwork-share-image" src="https://dnartwork-render-image.azurewebsites.net/api/render-image?<?php echo htmlentities($_REQUEST['art']); ?>" /></p>
       <?php if ($_REQUEST['message']) { ?>
         <p><?php echo htmlentities($_REQUEST['message']); ?></p>
       <?php } ?>
