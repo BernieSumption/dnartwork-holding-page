@@ -24,7 +24,7 @@ function getShareUrl() {
   var imageSrc = document.getElementById("artwork-preview-image").src;
   imageSrc = imageSrc.slice(imageSrc.indexOf("?") + 1);
   var shareTitle = document.getElementById("share-title").value.trim();
-  var shareMessage = document.getElementById("share-title").value.trim();
+  var shareMessage = document.getElementById("share-message").value.trim();
   var loc = document.location;
   var url = loc.protocol + "//" + loc.host + "/share/?art=" + encodeURIComponent(imageSrc);
   if (shareTitle) {
