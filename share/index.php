@@ -1,6 +1,8 @@
 <?php
 $hasExplicitTitle = isset($_REQUEST['title']);
 $title = $hasExplicitTitle ? $_REQUEST['title'] : "DNArtwork";
+
+$description = ($hasExplicitTitle ? "DNArtwork: " : "") . "Artwork created from your DNA";
 ?><!DOCTYPE html>
 <head>
   <meta charset="utf-8">
@@ -11,7 +13,7 @@ $title = $hasExplicitTitle ? $_REQUEST['title'] : "DNArtwork";
   <meta name="twitter:card" content="summary_large_image" />
   <meta property="og:image" content="https://dnartwork-render-image.azurewebsites.net/api/render-image?<?php echo htmlentities($_REQUEST['art']); ?>"/>
   <meta property="og:title" content="<?php echo htmlentities($title); ?>"/>
-  <meta property="og:description" content=""/>
+  <meta property="og:description" content="<?php echo htmlspecialchars($description); ?>"/>
   <script src="/app.js"></script>
   <script>require('initialize');</script>
 </head>
