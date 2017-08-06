@@ -12,11 +12,11 @@ function sharePreview() {
   window.open(getShareUrl(), "_blank");
 }
 function shareFacebook() {
-  var url = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(getShareUrl());
+  var url = "https://www.facebook.com/sharer/sharer.php?u=" + safeUriEncode(getShareUrl());
   window.open(url, "_blank");
 }
 function shareTwitter() {
-  var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent("Check out my #DNArtwork: " + getShareUrl());
+  var url = "https://twitter.com/intent/tweet?text=" + safeUriEncode("Check out my #DNArtwork: " + getShareUrl());
   window.open(url, "_blank");
 }
 
@@ -26,14 +26,18 @@ function getShareUrl() {
   var shareTitle = document.getElementById("share-title").value.trim();
   var shareMessage = document.getElementById("share-message").value.trim();
   var loc = document.location;
-  var url = loc.protocol + "//" + loc.host + "/share/?art=" + encodeURIComponent(imageSrc);
+  var url = loc.protocol + "//" + loc.host + "/share/?art=" + safeUriEncode(imageSrc);
   if (shareTitle) {
-    url += "&title=" + encodeURIComponent(shareTitle);
+    url += "&title=" + safeUriEncode(shareTitle);
   }
   if (shareMessage) {
-    url += "&message=" + encodeURIComponent(shareMessage);
+    url += "&message=" + safeUriEncode(shareMessage);
   }
   return url;
+}
+
+function safeUriEncode(text) {
+  return encodeURIComponent(text).replace(",", "%2C").replace(".", "%2E");
 }
   </script>
 </head>
