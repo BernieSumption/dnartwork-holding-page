@@ -37,7 +37,7 @@ function getShareUrl() {
 }
 
 function safeUriEncode(text) {
-  return encodeURIComponent(text).replace(",", "%2C").replace(".", "%2E");
+  return encodeURIComponent(text).replace(/,/g, "%2C").replace(/\./g, "%2E");
 }
   </script>
 </head>
