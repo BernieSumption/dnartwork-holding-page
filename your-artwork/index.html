@@ -26,7 +26,7 @@ function getShareUrl() {
   var shareTitle = document.getElementById("share-title").value.trim();
   var shareMessage = document.getElementById("share-message").value.trim();
   var loc = document.location;
-  var url = loc.protocol + "//" + loc.host + "/share/?art=" + safeUriEncode(imageSrc);
+  var url = loc.protocol + "//" + loc.host + "/artwork/share?art=" + safeUriEncode(imageSrc);
   if (shareTitle) {
     url += "&title=" + safeUriEncode(shareTitle);
   }
@@ -127,9 +127,10 @@ function safeUriEncode(text) {
       <h3>Download your artwork</h3>
       <p>DNArtworks look great when printed out large. Download a high-resolution version to print at home or send to an online poster printing service</p>
       <ul>
-        <li id="dnartwork-sizeable-download-link"><a href="javascript:downloadArtwork(3000, 'dnartwork-sizeable')">Sizeable: for prints up to A4 size (30cm wide) or use as desktop wallpaper</a></li>
-        <li id="dnartwork-largeish-download-link"><a href="javascript:downloadArtwork(6000, 'dnartwork-largeish')">Largeish: for prints up to A2 size (60cm wide)</a></li>
-        <li id="dnartwork-massive-download-link"><a href="javascript:downloadArtwork(12000, 'dnartwork-massive')">Massive: for prints up to A0 size and beyond (1+ meter wide)</a></li>
+        <li id="dnartwork-sizeable-download-link"><a href="javascript:downloadArtwork({shapeSize: 250, download: 'dnartwork-sizeable'});">Sizeable: for prints up to A4 size (30cm wide) or use as desktop wallpaper</a></li>
+        <li id="dnartwork-largeish-download-link"><a href="javascript:downloadArtwork({shapeSize: 500, download: 'dnartwork-largeish'})">Largeish: for prints up to A2 size (60cm wide)</a></li>
+        <li id="dnartwork-massive-download-link"><a href="javascript:downloadArtwork({shapeSize: 1000, download: 'dnartwork-massive'})">Massive: for prints up to A0 size and beyond (1+ meter wide)</a></li>
+        <li id="dnartwork-absurdly-ginormous-download-link"><a href="javascript:downloadArtwork({shapeSize: 2000, download: 'dnartwork-absurdly-ginormous'})">Absurdly Ginormous: I can't think why you'd need one this big</a></li>
       </ul>
       <h3>Compare artworks with your relatives</h3>
       <p>Do any of your friends and relatives have DNA tests? If so, send them to this page so that you can compare artworks!</p>
